@@ -2,9 +2,10 @@ package com.example.api.model;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
+import java.time.OffsetDateTime;
 
 @Entity
-@Table(name = "items")
+@Table(name = "spring_items")
 public class Item {
 
     @Id
@@ -16,6 +17,9 @@ public class Item {
     private String name;
 
     private String description;
+    
+    @Column(name = "created_at")
+    private OffsetDateTime createdAt;
 
     // Getters and setters
     public Long getId() {
@@ -40,5 +44,13 @@ public class Item {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+    
+    public OffsetDateTime getCreatedAt() {
+        return createdAt;
+    }
+    
+    public void setCreatedAt(OffsetDateTime createdAt) {
+        this.createdAt = createdAt;
     }
 } 
